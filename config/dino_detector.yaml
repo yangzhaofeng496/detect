@@ -1,0 +1,6 @@
+# dino_detector.yaml
+# model_path: 可以是 modelscope 的 repo id (namespace/name) 或本地模型路径
+model_path: "$(find detect)/models/dino/facebook/dinov3-vits16"
+# 目录结构：image_dir/车型/轴箱外端盖名称，例如 image_dino/HXD1C/端轴接地外端盖
+image_dir: "$(find detect)/models/dino/image"
+feature_type: "mean_patch"

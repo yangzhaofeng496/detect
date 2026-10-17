@@ -1,0 +1,23 @@
+# 模型路径
+yolo_model_path: "$(find detect)/models/thickness/yolo26_best.pt"
+lingbot_model_path: "$(find detect)/models/thickness/lingbot-depth-pretrain-vitl-14-v0.5.pt"
+
+# 推理参数
+imgsz: 640
+confidence: 0.25
+iou: 0.45
+device: "cuda"  # 或者 "cpu"
+
+# 相机内参 (RealSense 示例)
+intrinsics:
+  fx: 615.0
+  fy: 615.0
+  cx: 320.0
+  cy: 240.0
+
+# 类别映射
+cls_map:
+  0: 
+    name: "闸片"
+    code: "brake_pad"
+    sub_task: ""

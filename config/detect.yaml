@@ -1,0 +1,32 @@
+# detect.yaml
+hik_color_topic: "/camera/image_raw"
+color_topic: "/camera/color/image_raw"
+depth_topic: "/camera/depth/image_raw"
+detect_service_name: "/detectPic"
+
+# 检测器配置列表
+detectors:
+  - detect_type: "YOLO"
+    class_path: "yolo_detector.YoloDetector"
+    config_path: "$(find detect)/config/yolo_detector.yaml"
+
+  # - detect_type: "THICKNESS"
+  #   class_path: "thickness_detector.ThicknessDetector"
+  #   config_path: "$(find detect)/config/thickness_detector.yaml"
+
+  - detect_type: "OCR"
+    class_path: "ocr_detector.OCRDetector"
+    config_path: "$(find detect)/config/ocr_detector.yaml"
+
+  - detect_type: "DINO"
+    class_path: "dino_detector.DINODetector"
+    config_path: "$(find detect)/config/dino_detector.yaml"
+
+ 
+
+
+point_type_map:
+  1: '防缓标识'
+  2: '安装位别'
+  3: '物理测量'
+  4: '数量校验'

@@ -1,0 +1,45 @@
+# ocr_detector.yaml
+model:
+  ocr:
+    lang: "ch"
+    use_angle_cls: True
+    UVDoc: "$(find detect)/models/ocr/UVDoc"
+    text_detection_model_dir: "$(find detect)/models/ocr/PP-OCRv5_server_det"
+    text_recognition_model_dir: "$(find detect)/models/ocr/PP-OCRv5_server_rec"
+    doc_orientation_classify_model_dir: "$(find detect)/models/ocr/PP-LCNet_x1_0_doc_ori"
+    textline_orientation_model_dir: "$(find detect)/models/ocr/PP-LCNet_x1_0_textline_ori"
+  yolo:
+    model_path: "$(find detect)/models/ocr/brand_det.pt"
+    conf_threshold: 0.001
+    iou_threshold: 0.45
+    imgsz: 640
+device: "cuda" # Options: "cpu", "cuda", or null for auto selection
+preprocessing:
+  mode: "auto" # none, gray, metal, or auto (none + gray + metal)
+  min_score: 0.0
+  clip_low_percentile: 1.0
+  clip_high_percentile: 99.0
+  bilateral_diameter: 5
+  bilateral_sigma_color: 35.0
+  bilateral_sigma_space: 35.0
+  clahe_clip_limit: 2.5
+  clahe_grid_size: 8
+  background_kernel: 31
+  unsharp_amount: 0.65
+  auto_quality_tie_ratio: 0.0
+key_line_recovery:
+  enabled: true
+  min_score: 0.3
+  vertical_padding_ratio: 0.35
+  left_padding_ratio: 0.75
+  right_margin_ratio: 0.12
+  alignment_threshold_ratio: 0.55
+  suffix_recovery_enabled: true
+  suffix_high_confidence: 0.82
+  suffix_consensus_min_score: 0.55
+output:
+  visualization_dir: "ocr_visualization"
+  cropped_dir: "ocr_cropped"
+  result_dir: "ocr_results"
+
+debug: True

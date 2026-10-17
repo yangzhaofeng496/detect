@@ -1,0 +1,20 @@
+# 保留顶层字段以兼容历史几何检测函数。
+weights: "$(find detect)/models/yolo/yolo_seg_best.pt"
+imgsz: 640
+confidence: 0.4
+iou: 0.3
+device:
+
+segmentation:
+  weights: "$(find detect)/models/yolo/yolo_seg_best.pt"
+  imgsz: 640
+  confidence: 0.4
+  iou: 0.3
+  device:
+  mask_target_classes: [anti_loosen_mark]
+
+status_classification:
+  weights: "$(find detect)/models/yolo/anti_cls_best.pt"
+  imgsz: 96
+  device:
+  

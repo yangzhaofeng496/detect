@@ -1,0 +1,28 @@
+# yolo_detector.yaml
+# weights: "./models/yolo/best.pt"  
+weights: "$(find detect)/models/yolo/best72415.pt" 
+imgsz: 640
+confidence: 0.4
+iou: 0.3
+device: 'cuda'  # 'cpu' or 'cuda'
+font_size: 22
+output_dir: '$(find detect)/output/HXD1C/result'
+
+cls_map:
+  0: {code: "bolt", name: "螺栓", sub_task: "anti_loosen_mark"}
+  1: {code: "cotter_pin", name: "开口销", sub_task: "cotter_pin_angle"}
+  2: {code: "dust_plug", name: "防尘堵"}
+  3: {code: "hose_clip", name: "喉箍"}
+  4: {code: "in_bolt", name: "内六角螺栓", sub_task: "anti_loosen_mark"}
+  5: {code: "nut", name: "螺母", sub_task: "anti_loosen_mark"}
+  6: {code: "pipe_fitting", name: "管接口"}
+  # 6: {code: "pipe_fitting", name: "管接口", sub_task: "anti_loosen_mark"}
+  7: {code: "seal", name: "铅封"}
+
+# cls_map:
+#   0: {code: "nut", name: "螺母", sub_task: "anti_loosen_mark"}
+#   1: {code: "bolt", name: "螺栓", sub_task: "anti_loosen_mark"}
+#   2: {code: "pipe_fitting", name: "管接口", sub_task: "anti_loosen_mark"}
+#   3: {code: "cotter_pin", name: "开口销", sub_task: "cotter_pin_angle"}
+#   4: {code: "dust_plug", name: "防尘堵"}
+#   5: {code: "hose_clip", name: "喉箍"}
